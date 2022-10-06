@@ -1,0 +1,17 @@
+.avaliable-meals {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+.avaliable-meals .meals-list {
+  background-color: white;
+  max-width: 60rem;
+  width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 0 2rem;
+}
+.avaliable-meals ul {
+  list-style: none;
+  padding-left: 0;
+}

@@ -1,0 +1,23 @@
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px #ccc solid;
+  /* padding: 0.5rem 0; */
+  padding-top: 2rem;
+}
+
+.meal-item__left .description {
+  font-style: italic;
+  font-size: 1.1rem;
+}
+.meal-item__left .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.price {
+  font-size: 1.3rem;
+  color: #d1461c;
+  font-weight: bold;
+}

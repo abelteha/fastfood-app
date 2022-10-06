@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { GiFrenchFries } from "react-icons/gi";
+
 import classes from "./Header.module.css";
 import HeaderButton from "./HeaderButton";
 import HeaderImages from "./HeaderImages";
@@ -8,9 +8,7 @@ const Header = () => {
     <Fragment>
       <header className={classes.header}>
         <div>
-          <GiFrenchFries style={{ fontSize: "2.5rem" }}></GiFrenchFries>
           <h1>FastFOOD</h1>
-          <GiFrenchFries style={{ fontSize: "2.5rem" }}></GiFrenchFries>
         </div>
         <HeaderButton />
       </header>
