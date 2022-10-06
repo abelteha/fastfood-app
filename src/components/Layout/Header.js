@@ -3,14 +3,14 @@ import { Fragment } from "react";
 import classes from "./Header.module.css";
 import HeaderButton from "./HeaderButton";
 import HeaderImages from "./HeaderImages";
-const Header = () => {
+const Header = (props) => {
   return (
     <Fragment>
       <header className={classes.header}>
         <div>
-          <h1>FastFOOD</h1>
+          <h1>FastFood</h1>
         </div>
-        <HeaderButton />
+        <HeaderButton onClick={props.onShowCart} />
       </header>
       {/* <div className={classes["img-holder"]}>
         <img />

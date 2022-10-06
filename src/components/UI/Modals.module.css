@@ -1,0 +1,19 @@
+.back-drop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 8;
+}
+.modal {
+  position: fixed;
+  max-width: 40rem;
+  width: 90%;
+  top: 30%;
+  background-color: white;
+  left: calc(50vw - 20rem);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  padding: 1rem;
+}
