@@ -1,0 +1,17 @@
+.label {
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-right: 1.5rem;
+}
+
+.input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 2.5rem;
+  height: 2rem;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+}
+.form {
+  padding-bottom: 1rem;
+}

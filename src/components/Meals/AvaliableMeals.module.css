@@ -1,7 +1,7 @@
 .avaliable-meals {
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
+  padding: 2rem 0;
 }
 .avaliable-meals .meals-list {
   background-color: white;
