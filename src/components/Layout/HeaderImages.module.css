@@ -1,0 +1,51 @@
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 4% 2%;
+  box-sizing: border-box;
+  height: 100vh;
+  top: 2.5rem;
+}
+
+.box {
+  flex: 1;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 0 1%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  line-height: 0;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.box > img {
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: 0.5s;
+}
+
+.box > span {
+  position: relative;
+  top: -4rem;
+  left: calc(100% - 65%);
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+
+  font-weight: bold;
+}
+
+.box:hover {
+  flex: 1 1 50%;
+  border-radius: 20px;
+}
+.box:hover > span {
+  display: none;
+}
+
+.box:hover > img {
+  width: 100%;
+  height: 100%;
+}
