@@ -15,3 +15,11 @@
   list-style: none;
   padding-left: 0;
 }
+@media screen and (max-width: 620px) {
+  .avaliable-meals .meals-list {
+    width: 95%;
+  }
+  .avaliable-meals {
+    padding: 1.5rem 0;
+  }
+}

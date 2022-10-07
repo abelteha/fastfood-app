@@ -1,9 +1,11 @@
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modals.module.css";
-export const Modal = (props) => {
-  return <div className={classes.modal}>{props.children}</div>;
-};
+export const Modal = (props) => (
+  <div className={classes.style}>
+    <div className={classes.modal}>{props.children}</div>
+  </div>
+);
 
 const BackDrop = (props) => {
   return <div className={classes["back-drop"]} onClick={props.onClick}></div>;

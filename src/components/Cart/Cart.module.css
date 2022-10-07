@@ -1,6 +1,23 @@
+/* .style {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+} */
 .ul {
   list-style: none;
   padding: 0;
+}
+.scroll {
+  height: 20rem;
+  overflow: scroll;
+  border-bottom: 1.5px solid #d1461c;
+}
+.no-item {
+  text-align: center;
+  padding-top: 7rem;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 .price-div {
   padding: 1rem 0;
@@ -40,4 +57,22 @@
 .order-button:active {
   background-color: #6d2610;
   color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .price {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  .no-item {
+    padding-top: 5rem;
+    font-size: 1.2rem;
+  }
+  .close-button,
+  .order-button {
+    padding: 0.5rem 1.8rem;
+  }
+  .scroll {
+    height: 15rem;
+  }
 }

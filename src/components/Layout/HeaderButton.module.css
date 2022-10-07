@@ -44,3 +44,31 @@
     transform: scale(1);
   }
 }
+
+@media screen and (max-width: 650px) {
+  .header-button {
+    width: 10rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .title {
+    font-size: 0.8rem;
+  }
+  .icon {
+    font-size: 1.1rem;
+  }
+  .badge {
+    padding: 0.2rem 0.7rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .header-button {
+    width: 6rem;
+  }
+  .title {
+    display: none;
+  }
+  .badge {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}

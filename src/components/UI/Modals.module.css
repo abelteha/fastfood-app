@@ -5,15 +5,26 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 8;
 }
+.style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .modal {
   position: fixed;
   max-width: 40rem;
   width: 90%;
-  top: 30%;
+  top: 20%;
   background-color: white;
-  left: calc(50vw - 20rem);
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   z-index: 10;
   padding: 1rem;
+  max-height: 30rem;
+}
+
+@media screen and (max-width: 500px) {
+  .modal {
+    max-height: 25rem;
+  }
 }

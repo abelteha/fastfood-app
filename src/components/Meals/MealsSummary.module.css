@@ -32,3 +32,17 @@
   padding: 0.3rem 3rem;
   font-size: 1.1rem;
 }
+@media screen and (max-width: 620px) {
+  .meal-summary h1 {
+    font-size: 1.7rem;
+    padding: 0.5rem 1rem 0 0.5rem;
+  }
+  .meal-summary p {
+    padding: 0.2rem 2rem;
+    font-size: 0.9rem;
+  }
+  .meal-summary > div {
+    padding-bottom: 15px;
+    width: 95%;
+  }
+}

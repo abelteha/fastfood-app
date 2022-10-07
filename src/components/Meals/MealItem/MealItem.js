@@ -17,16 +17,18 @@ const MealItem = (props) => {
       setIsAmountValid(false);
       return;
     }
-    setIsAmountValid(true);
+
     const item = {
+      id: props.id,
       name: props.name,
       price: props.price,
       amount: amountInteger,
     };
-    cartCxt.addItem.bind(null, item);
+    cartCxt.addItem(item);
+    setIsAmountValid(true);
   };
   return (
-    <article className={classes["meal-item"]}>
+    <article className={classes["meal-item"]} id={props.id}>
       <div className={classes["meal-item__left"]}>
         <p className={classes.title}>{props.name}</p>
         <p className={classes.description}>{props.description}</p>
@@ -45,7 +47,9 @@ const MealItem = (props) => {
             }}
           />
           <button className={classes["add-button"]}>+ Add</button>
-          {!isAmountValid && <p>Please enter a valid value(1-5)!</p>}
+          {!isAmountValid && (
+            <p className={classes.invalid}>Please enter a valid value(1-5)!</p>
+          )}
         </form>
       </div>
     </article>

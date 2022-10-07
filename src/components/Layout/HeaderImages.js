@@ -7,20 +7,29 @@ const HeaderImages = () => {
   return (
     <div className={classes.container}>
       <div className={classes.box}>
-        <img src={burger} />
-        <span>BURGER</span>
+        <a href="#m1">
+          <img src={burger} />
+          <span>BURGER</span>
+        </a>
+      </div>
+
+      <div className={classes.box}>
+        <a href="#m2">
+          <img src={pizza} />
+          <span>PIZZA</span>
+        </a>
       </div>
       <div className={classes.box}>
-        <img src={pizza} />
-        <span>PIZZA</span>
+        <a href="#m3">
+          <img src={hotDog} />
+          <span>HOTDOG</span>
+        </a>
       </div>
       <div className={classes.box}>
-        <img src={hotDog} />
-        <span>HOTDOG</span>
-      </div>
-      <div className={classes.box}>
-        <img src={chicken} />
-        <span>CHICKEN</span>
+        <a href="#m4">
+          <img src={chicken} />
+          <span>CHICKEN</span>
+        </a>
       </div>
     </div>
   );
