@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 
 import classes from "./Header.module.css";
 import HeaderButton from "./HeaderButton";

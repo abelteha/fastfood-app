@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import CartContext from "../../store/cart-context";
 import Modals from "../UI/Modals";
 import classes from "./Cart.module.css";
@@ -18,9 +18,9 @@ const Cart = (props) => {
   ));
   const price = `$${Math.abs(cartCxt.totalAmount).toFixed(2)}`;
 
-  const orderButtonHandler = () => {
+  const orderButtonHandler = useCallback(() => {
     console.log("Ordering...");
-  };
+  }, []);
   return (
     <Modals onClick={props.onHideCart}>
       <div className={classes.scroll}>

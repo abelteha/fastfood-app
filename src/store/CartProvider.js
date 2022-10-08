@@ -51,7 +51,7 @@ const cartRedcuer = (state, action) => {
       updatedItems = [...state.items];
       updatedItems[itemIndex] = updatedItem;
     } else {
-      updatedItems = state.items.filter((item) => item.id != action.id);
+      updatedItems = state.items.filter((item) => item.id !== action.id);
     }
     return { items: updatedItems, totalAmount: totalPrice };
   }
