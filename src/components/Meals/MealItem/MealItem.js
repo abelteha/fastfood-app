@@ -1,10 +1,13 @@
 import { useContext, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../store";
 import CartContext from "../../../store/cart-context";
 import Input from "../../UI/Input";
 import classes from "./MealItem.module.css";
 const MealItem = (props) => {
   const [isAmountValid, setIsAmountValid] = useState(true);
-  const cartCxt = useContext(CartContext);
+  // const cartCxt = useContext(CartContext);
+  const dispatch = useDispatch();
   const price = `$${props.price.toFixed(2)}`;
   const cartRef = useRef();
 
@@ -24,7 +27,8 @@ const MealItem = (props) => {
       price: props.price,
       amount: amountInteger,
     };
-    cartCxt.addItem(item);
+    dispatch(cartActions.addItemToCart(item));
+    // cartCxt.addItem(item);
     setIsAmountValid(true);
   };
   return (

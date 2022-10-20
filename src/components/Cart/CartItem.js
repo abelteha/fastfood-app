@@ -1,22 +1,28 @@
 import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store";
 import CartContext from "../../store/cart-context";
 import classes from "./CartItem.module.css";
 const CartItem = (props) => {
-  const cartCxt = useContext(CartContext);
+  // const cartCxt = useContext(CartContext);
   const price = `$${props.price.toFixed(2)}`;
   const amount = `x ${props.amount}`;
+
+  const dispatch = useDispatch();
   const item = {
     id: props.id,
     name: props.name,
     price: props.price,
-    amount: props.amount,
+    amount: 1,
   };
   const addItemHandler = () => {
-    cartCxt.addItem({ ...item, amount: 1 });
+    dispatch(cartActions.addItemToCart(item));
+    //   cartCxt.addItem({ ...item, amount: 1 });
   };
 
   const removeItemHandler = () => {
-    cartCxt.removeItem(item.id);
+    dispatch(cartActions.removeItemFromCart(item.id));
+    //   cartCxt.removeItem(item.id);
   };
   return (
     <div className={classes["cart-item"]}>

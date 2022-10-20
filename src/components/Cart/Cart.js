@@ -1,11 +1,14 @@
 import { useCallback, useContext } from "react";
+import { useSelector } from "react-redux";
 import CartContext from "../../store/cart-context";
 import Modals from "../UI/Modals";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
 const Cart = (props) => {
-  const cartCxt = useContext(CartContext);
-  const cartItems = cartCxt.items.map((item) => (
+  const cartItems = useSelector((state) => state.items);
+  const totalPrice = useSelector((state) => state.totalAmount);
+  // const cartCxt = useContext(CartContext);
+  const cartItemss = cartItems.map((item) => (
     <li>
       <CartItem
         key={item.id}
@@ -16,7 +19,7 @@ const Cart = (props) => {
       />
     </li>
   ));
-  const price = `$${Math.abs(cartCxt.totalAmount).toFixed(2)}`;
+  const price = `$${Math.abs(totalPrice).toFixed(2)}`;
 
   const orderButtonHandler = useCallback(() => {
     console.log("Ordering...");
@@ -24,12 +27,12 @@ const Cart = (props) => {
   return (
     <Modals onClick={props.onHideCart}>
       <div className={classes.scroll}>
-        {cartCxt.totalAmount <= 0 && (
+        {totalPrice <= 0 && (
           <p className={classes["no-item"]} key="p">
             No food in the cart, May be add one?
           </p>
         )}
-        <ul className={classes.ul}>{cartItems}</ul>
+        <ul className={classes.ul}>{cartItemss}</ul>
       </div>
 
       <div className={classes["price-div"]}>
@@ -40,7 +43,7 @@ const Cart = (props) => {
         <button className={classes["close-button"]} onClick={props.onHideCart}>
           Close
         </button>
-        {cartCxt.totalAmount > 0 && (
+        {totalPrice > 0 && (
           <button
             className={classes["order-button"]}
             onClick={orderButtonHandler}
