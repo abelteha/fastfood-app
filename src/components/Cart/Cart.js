@@ -1,12 +1,12 @@
-import { useCallback, useContext } from "react";
+import { useCallback } from "react";
 import { useSelector } from "react-redux";
-import CartContext from "../../store/cart-context";
 import Modals from "../UI/Modals";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
 const Cart = (props) => {
   const cartItems = useSelector((state) => state.items);
   const totalPrice = useSelector((state) => state.totalAmount);
+  const totalAmount = Math.round(totalPrice);
   // const cartCxt = useContext(CartContext);
   const cartItemss = cartItems.map((item) => (
     <li>
@@ -27,7 +27,7 @@ const Cart = (props) => {
   return (
     <Modals onClick={props.onHideCart}>
       <div className={classes.scroll}>
-        {totalPrice <= 0 && (
+        {totalAmount === 0 && (
           <p className={classes["no-item"]} key="p">
             No food in the cart, May be add one?
           </p>
@@ -43,7 +43,7 @@ const Cart = (props) => {
         <button className={classes["close-button"]} onClick={props.onHideCart}>
           Close
         </button>
-        {totalPrice > 0 && (
+        {totalAmount > 0 && (
           <button
             className={classes["order-button"]}
             onClick={orderButtonHandler}

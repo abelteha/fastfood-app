@@ -1,4 +1,4 @@
-import { configureStore, createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialCartState = { items: [], totalAmount: 0 };
 const cartSlice = createSlice({
@@ -10,12 +10,11 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (existingItem) {
-        existingItem.amount++;
+        existingItem.amount += action.payload.amount;
       } else {
         state.items.unshift(action.payload);
       }
-      state.totalAmount += action.payload.price;
-      console.log(current(state.items));
+      state.totalAmount += action.payload.price * action.payload.amount;
     },
     removeItemFromCart(state, action) {
       const existingItem = state.items.find(
@@ -31,8 +30,6 @@ const cartSlice = createSlice({
   },
 });
 
-const store = configureStore({ reducer: cartSlice.reducer });
-
 export const cartActions = cartSlice.actions;
 
-export default store;
+export default cartSlice.reducer;

@@ -1,8 +1,7 @@
-import { useCallback, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
-import CartProvider from "./store/CartProvider";
 
 const App = () => {
   const [cartItem, setCartItem] = useState(false);
@@ -14,13 +13,13 @@ const App = () => {
     setCartItem(false);
   }, []);
   return (
-    <CartProvider>
+    <Fragment>
       {cartItem && <Cart onHideCart={hideCartItem} />}
       <Header onShowCart={showCartItem} />
       <main>
         <Meals />
       </main>
-    </CartProvider>
+    </Fragment>
   );
 };
 export default App;

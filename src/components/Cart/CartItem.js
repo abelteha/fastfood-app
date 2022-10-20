@@ -1,7 +1,5 @@
-import { useContext } from "react";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../../store";
-import CartContext from "../../store/cart-context";
+import { cartActions } from "../../store/cart-slice";
 import classes from "./CartItem.module.css";
 const CartItem = (props) => {
   // const cartCxt = useContext(CartContext);

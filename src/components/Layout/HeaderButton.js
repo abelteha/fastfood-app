@@ -1,19 +1,20 @@
 import classes from "./HeaderButton.module.css";
-import CartContext from "../../store/cart-context";
 import { BsCartFill } from "react-icons/bs";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSelector } from "react-redux";
 const HeaderButton = (props) => {
   const [isAdded, setIsAdded] = useState(false);
-  const cartCxt = useContext(CartContext);
+  // const cartCxt = useContext(CartContext);
+  const cartItems = useSelector((state) => state.items);
 
   useEffect(() => {
     setIsAdded(true);
     setTimeout(() => {
       setIsAdded(false);
     }, 300);
-  }, [cartCxt.items]);
+  }, [cartItems]);
 
-  const numberOfItems = cartCxt.items.reduce(
+  const numberOfItems = cartItems.reduce(
     (total, item) => (total += item.amount),
     0
   );

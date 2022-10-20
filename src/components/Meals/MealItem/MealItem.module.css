@@ -46,6 +46,24 @@
 }
 .invalid {
   font-weight: bolder;
+  color: #a93916;
+  animation-name: error;
+  animation-duration: 300ms;
+}
+
+@keyframes error {
+  0% {
+    transform: translateX(-30%);
+  }
+  25% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 @media screen and (max-width: 620px) {
   .meal-item__left .title {

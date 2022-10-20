@@ -1,25 +1,28 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../../../store";
-import CartContext from "../../../store/cart-context";
+import { cartActions } from "../../../store/cart-slice";
+
 import Input from "../../UI/Input";
 import classes from "./MealItem.module.css";
+
+const defaultValue = "1";
 const MealItem = (props) => {
   const [isAmountValid, setIsAmountValid] = useState(true);
-  // const cartCxt = useContext(CartContext);
+  const [enteredAmount, setEnteredAmount] = useState(defaultValue);
+
   const dispatch = useDispatch();
   const price = `$${props.price.toFixed(2)}`;
   const cartRef = useRef();
+  const amountInteger = +enteredAmount;
+  const enteredAmountIsValid =
+    amountInteger > 0 && enteredAmount.trim().length > 0 && amountInteger < 6;
+  const inputChangeHandler = (event) => {
+    setEnteredAmount(event.target.value);
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const amount = cartRef.current.value;
-    const amountInteger = +amount;
-
-    if (amountInteger < 1 || amount.trim().length === 0 || amountInteger > 5) {
-      setIsAmountValid(false);
-      return;
-    }
+    setIsAmountValid(enteredAmountIsValid);
 
     const item = {
       id: props.id,
@@ -27,9 +30,10 @@ const MealItem = (props) => {
       price: props.price,
       amount: amountInteger,
     };
-    dispatch(cartActions.addItemToCart(item));
-    // cartCxt.addItem(item);
-    setIsAmountValid(true);
+
+    if (enteredAmountIsValid) {
+      dispatch(cartActions.addItemToCart(item));
+    }
   };
   return (
     <article className={classes["meal-item"]} id={props.id}>
@@ -46,8 +50,9 @@ const MealItem = (props) => {
             input={{
               id: "f1",
               type: "number",
-              defaultValue: "1",
+              defaultValue: defaultValue,
               step: 1,
+              onChange: inputChangeHandler,
             }}
           />
           <button className={classes["add-button"]}>+ Add</button>
